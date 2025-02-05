@@ -19,5 +19,10 @@ app.get('/api', (req, res) => {
   res.json({ message: 'Hello from MERN stack!' });
 });
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
+
+// Optionally, if you still want to run locally using `node app.js`, add:
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+}
